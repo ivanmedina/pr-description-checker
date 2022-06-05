@@ -27,6 +27,12 @@ SUCCESS_COMMENT=$4
 FAIL_EMOJI=$5
 FAIL_COMMENT=$6
 
+echo "regex: $regex"
+echo "SUCCESS_EMOJI: $SUCCESS_EMOJI"
+echo "SUCCESS_COMMENT: $SUCCESS_COMMENT"
+echo "FAIL_EMOJI: $FAIL_EMOJI"
+echo "FAIL_COMMENT: $FAIL_COMMENT"
+
 # @param - description
 # @param - regex
 
