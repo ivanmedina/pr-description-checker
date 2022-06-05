@@ -39,10 +39,10 @@ echo "FAIL_COMMENT: $FAIL_COMMENT"
 match()
 {
 	if [[ $2 =~ $(echo $1) ]];then
-		return 1
+		return 0
 	fi
 
-	return 0
+	return 1
 }
 
 success()
@@ -83,6 +83,7 @@ if [[ "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
 fi 
 
 matched=$(match "$regex" "$GITHUB_PULL_REQUEST_EVENT_BODY")
+echo "match: $matched"
 
 if [[ $matched -ne 0 ]]; then
 	echo "The github description does not match pattern"
