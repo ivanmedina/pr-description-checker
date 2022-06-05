@@ -74,6 +74,7 @@ GITHUB_PULL_REQUEST_EVENT_BODY=$(jq --raw-output .pull_request.body "$GITHUB_EVE
 if [[ "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
 	echo "The github event name is not pull_request"
 	exit 1
+fi 
 
 matched=match $regex $GITHUB_PULL_REQUEST_EVENT_BODY
 
@@ -82,6 +83,7 @@ if [[ $matched -ne 0 ]]; then
 	echo "$regex"
 	fail
 	exit 1
+fi
 
 success
 exit 0
