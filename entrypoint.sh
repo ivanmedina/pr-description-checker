@@ -76,7 +76,7 @@ if [[ "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
 	exit 1
 fi 
 
-matched=match "$regex" "$GITHUB_PULL_REQUEST_EVENT_BODY"
+matched=match $(echo $regex) "$GITHUB_PULL_REQUEST_EVENT_BODY"
 
 if [[ $matched -ne 0 ]]; then
 	echo "The github description does not match pattern"
