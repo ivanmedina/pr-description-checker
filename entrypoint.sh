@@ -21,7 +21,7 @@ if [[ -z "$GITHUB_EVENT_NAME" ]]; then
 fi
 
 GITHUB_TOKEN=$1
-regex=$2
+regex="$2"
 SUCCESS_EMOJI=$3
 SUCCESS_COMMENT=$4
 FAIL_EMOJI=$5
