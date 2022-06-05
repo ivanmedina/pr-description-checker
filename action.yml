@@ -1,0 +1,36 @@
+name: 'pr-size-labeler'
+description: 'Label PR using the size'
+inputs:
+  GITHUB_TOKEN:
+    description: 'Github Token'
+    required: true
+  regex:
+    description: 'Regex pattern string'
+    default: '^.{10,100}$'
+    required: false
+  SUCCESS_EMOJI:
+    description: 'Success emoji to set in PR'
+    default: 'rocket'
+    required: false
+  SUCCESS_COMMENT:
+    description: 'Success comment to set in PR'
+    default: 'Description OK'
+    required: false
+  FAIL_EMOJI:
+    description: 'eyes'
+    default: 'Description pattern no match'
+    required: false
+  FAIL_COMMENT:
+    description: 'Fail comment to set in PR'
+    default: 'false'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    -  ${{ inputs.GITHUB_TOKEN }}
+    -  ${{ inputs.regex }}
+    -  ${{ inputs.SUCCESS_EMOJI }}
+    -  ${{ inputs.SUCCESS_COMMENT }}
+    -  ${{ inputs.FAIL_EMOJI }}
+    -  ${{ inputs.FAIL_COMMENT }}
